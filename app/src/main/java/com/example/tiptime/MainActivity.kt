@@ -104,10 +104,16 @@ fun TipTimeLayout() {
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
             )
-        Text(
-            text = stringResource(R.string.tip_amount, tip),
-            style = MaterialTheme.typography.displaySmall
-        )
+            Text(
+                text = stringResource(R.string.tip_amount,  tip),
+                style = MaterialTheme.typography.displaySmall
+            )
+                Text(
+                    text = "Hi",
+                    style = MaterialTheme.typography.displayLarge
+
+                )
+
         Spacer(modifier = Modifier.height(150.dp))
     }
 }
@@ -118,7 +124,7 @@ fun TipTimeLayout() {
  * Example would be "$10.00".
  */
 private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
-    val tip = tipPercent / 100 * amount
+    val tip = amount - (tipPercent / 100 * amount)
     return NumberFormat.getCurrencyInstance().format(tip)
 }
 
